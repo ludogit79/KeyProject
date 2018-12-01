@@ -195,12 +195,24 @@ public class HandlerClef {
 	public static void Search(Clef clef[],int taille)   // Fonction de recherche par champs
 	{
 		Scanner sc = new Scanner (System.in) ;
-		System.out.println("Quel champs voulez vous faire la recherche , (p)orte, (m)arque, (t)echnologie, (ma)tière, (d)isponible, (pr)opriétaire ?");
+		System.out.println("================================================");
+	    System.out.println("|                MENU  RECHERCHE               |");
+	    System.out.println("================================================");
+	    System.out.println("| Options:                                     |");
+	    System.out.println("|      1. Rechercher des portes                 |");
+	    System.out.println("|      2. Rechercher par marque de clef        |");
+	    System.out.println("|      3. Rechercher par technologie de clef   |");
+	    System.out.println("|      4. Rechercher par matière               |");
+	    System.out.println("|      5. Rechercher les clefs disponibles      |");
+	    System.out.println("|      6. Rechercher les clefs indisponibles    |");
+	    System.out.println("|      7. Rechercher par propriétaire          |");
+	    System.out.println("================================================");
+	    System.out.println(" Votre choix ?");
 		String reponse = sc.nextLine();
 		boolean disponibilite;
 		
 		switch(reponse) 
-		{		case "p":
+		{		case "1":
 						System.out.println("Quelle valeur pour le champs , pour porte ?");
 						String valeur = sc.nextLine();			
 						System.out.println("Clef(s) correspondant(es) à la recherche");
@@ -213,7 +225,7 @@ public class HandlerClef {
 						}
 				break;
 				
-				case "m":
+				case "2":
 					System.out.println("Quelle valeur pour le champs pour marque ?");
 						String valeur_marque = sc.nextLine();			
 						System.out.println("Clef(s) correspondant(es) à la recherche");
@@ -226,7 +238,7 @@ public class HandlerClef {
 						}					
 				break;
 				
-				case "t":
+				case "3":
 					System.out.println("Quelle valeur pour le champs technologie ?");
 						String valeur_tech = sc.nextLine();			
 						System.out.println("Clef(s) correspondant(es) à la recherche");
@@ -239,7 +251,7 @@ public class HandlerClef {
 						}
 				break;
 	
-				case "ma":
+				case "4":
 						System.out.println("Quelle valeur pour le champs matière ?");
 						String valeur_mat = sc.nextLine();			
 						System.out.println("Clef(s) correspondant(es) à la recherche");
@@ -252,20 +264,31 @@ public class HandlerClef {
 						}					
 				break;
 				
-				case "d":
-						System.out.println("Quelle valeur pour le champs disponible ?");
-						String valeur_dispo = sc.nextLine();			
-						System.out.println("Clef(s) correspondant(es) à la recherche");
+				case "5":
+						System.out.println("les clefs diponibles sont : ");
+									
 						for (int i = 0 ; i<=taille-1; i++)
 						{
-							if( (clef[i] != null) && (clef[i].GetPorte().equals(valeur_dispo) ))
+							if( (clef[i] != null) && (clef[i].GetIsDisponibilite() ))
 							{
 								AffichageClef(clef, i);
 							}
 						}			
 				break;
 				
-				case "pr" : 
+				case "6":
+					System.out.println("les clefs indiponibles sont : ");
+								
+					for (int i = 0 ; i<=taille-1; i++)
+					{
+						if( (clef[i] != null) && (!clef[i].GetIsDisponibilite() ))
+						{
+							AffichageClef(clef, i);
+						}
+					}			
+			break;
+				
+				case "7" : 
 						System.out.println("Quelle valeur pour le champs propriétaire ?");
 						String valeur_proprio = sc.nextLine();
 			

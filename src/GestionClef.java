@@ -111,6 +111,7 @@ public class GestionClef {
 						case "6":
 								exit = false;
 						break;
+						default : System.out.println("Erreur de saisie");
 				}		
 								
 			}while (exit);
